@@ -1,0 +1,39 @@
+---
+server:
+  port: 8090
+spring:
+  profiles:
+    active: default
+  
+---
+spring:
+  profiles: default,local
+  jpa.show-sql : true
+  jpa.generate-ddl : true
+  datasource:
+   url : jdbc:postgresql://localhost:5432/db_importbills
+   username : postgres
+   password : admin
+   driverClassName : org.postgresql.Driver
+   testWhileIdle : true
+   validationQuery : SELECT 1
+max:
+ recent:
+  transactions : 10
+    
+---
+spring:
+  profiles: googlecloud
+  jpa.show-sql : true
+  jpa.generate-ddl : true
+  datasource:
+   url : jdbc:postgresql://localhost:5432/db_importbills
+   username : postgres
+   password : admin
+   driverClassName : org.postgresql.Driver
+   testWhileIdle : true
+   validationQuery : SELECT 1
+max:
+ recent:
+  transactions : 10
+  
